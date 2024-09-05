@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AutherController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\ProductController;
 use App\Http\Middleware\AuthndicatedUser;

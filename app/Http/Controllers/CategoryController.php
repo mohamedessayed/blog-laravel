@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotificationMail;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CategoryController extends Controller
 {
@@ -37,9 +39,13 @@ class CategoryController extends Controller
             'category_name'=>'required|string|min:3|unique:categories,category_name',
         ]);
 
-        Category::create([
+        $new_recored = Category::create([
             'category_name'=>$request->category_name
         ]);
+
+        //send mail
+
+        Mail::to('growthlevel12@gmail.com')->send(new NotificationMail($new_recored->category_name));
 
         return redirect()->route('category.index')->with('message','Created Successfully!');
     }
