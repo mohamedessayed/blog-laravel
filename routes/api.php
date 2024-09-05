@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,3 +14,6 @@ Route::middleware('auth:api')->group(function(){
 
 
 Route::post('user/login',[AuthController::class,'login']);
+
+
+Route::post('category/store',[CategoryController::class,'store']);
